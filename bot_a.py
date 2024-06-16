@@ -1,4 +1,13 @@
 import os
+import sys
+
+# Активация виртуального окружения
+venv_path = os.path.join(os.getcwd(), 'venv', 'bin', 'activate_this.py')
+if os.path.exists(venv_path):
+    with open(venv_path) as f:
+        exec(f.read(), dict(__file__=venv_path))
+
+# Теперь можно импортировать другие модули и запускать бота
 from telegram import Update, Bot
 from telegram.ext import Updater, MessageHandler, CallbackContext, Filters
 import telegram.ext.filters as filters
